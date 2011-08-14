@@ -27,11 +27,12 @@ my %WriteMakefileArgs = (
     'Sub::Install' => '0.925',
     'Syntax::Feature::Function' => '0.001',
     'Syntax::Feature::Method' => '0.001',
-    'Syntax::Feature::Sugar::Callbacks' => '0.001',
+    'Syntax::Feature::Sugar::Callbacks' => '0.002',
+    'parent' => '0',
     'strictures' => '1',
     'syntax' => '0.003'
   },
-  'VERSION' => '0.001',
+  'VERSION' => '0.002',
   'test' => {
     'TESTS' => 't/*.t'
   }

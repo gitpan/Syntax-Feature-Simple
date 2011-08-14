@@ -4,7 +4,7 @@
       "Robert 'phaylon' Sedlacek <rs@474.at>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.200013, CPAN::Meta::Converter version 2.110440",
+   "generated_by" : "Dist::Zilla version 4.200015, CPAN::Meta::Converter version 2.110440",
    "license" : [
       "perl_5"
    ],
@@ -30,7 +30,8 @@
             "Sub::Install" : "0.925",
             "Syntax::Feature::Function" : "0.001",
             "Syntax::Feature::Method" : "0.001",
-            "Syntax::Feature::Sugar::Callbacks" : "0.001",
+            "Syntax::Feature::Sugar::Callbacks" : "0.002",
+            "parent" : 0,
             "strictures" : "1",
             "syntax" : "0.003"
          }
@@ -45,11 +46,15 @@
    "provides" : {
       "Syntax::Feature::Simple" : {
          "file" : "lib/Syntax/Feature/Simple.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       },
       "Syntax::Feature::Simple::V1" : {
          "file" : "lib/Syntax/Feature/Simple/V1.pm",
-         "version" : "0.001"
+         "version" : "0.002"
+      },
+      "Syntax::Feature::Simple::V2" : {
+         "file" : "lib/Syntax/Feature/Simple/V2.pm",
+         "version" : "0.002"
       }
    },
    "release_status" : "stable",
@@ -64,7 +69,7 @@
          "web" : "http://github.com/phaylon/Syntax-Feature-Simple"
       }
    },
-   "version" : "0.001",
+   "version" : "0.002",
    "x_authority" : "cpan:PHAYLON"
 }
 

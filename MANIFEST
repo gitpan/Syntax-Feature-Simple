@@ -5,10 +5,10 @@ META.json
 META.yml
 Makefile.PL
 README
-Todo
 dist.ini
 lib/Syntax/Feature/Simple.pm
 lib/Syntax/Feature/Simple/V1.pm
+lib/Syntax/Feature/Simple/V2.pm
 t/author-moose-class.t
 t/author-parameterized-moose-role.t
 t/no_version.t

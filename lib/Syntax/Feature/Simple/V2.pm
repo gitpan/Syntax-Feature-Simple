@@ -1,16 +1,16 @@
 use strictures 1;
 
-# ABSTRACT: Version 1 of bundled syntax enhancements
+# ABSTRACT: Version 2 of bundled syntax enhancements
 
-package Syntax::Feature::Simple::V1;
+package Syntax::Feature::Simple::V2;
 {
-  $Syntax::Feature::Simple::V1::VERSION = '0.002';
+  $Syntax::Feature::Simple::V2::VERSION = '0.002';
 }
 BEGIN {
-  $Syntax::Feature::Simple::V1::AUTHORITY = 'cpan:PHAYLON';
+  $Syntax::Feature::Simple::V2::AUTHORITY = 'cpan:PHAYLON';
 }
 
-use parent 'Syntax::Feature::Simple';
+use parent 'Syntax::Feature::Simple::V1';
 use syntax qw( method );
 
 method _available_extensions {
@@ -19,21 +19,16 @@ method _available_extensions {
         moose_param_role_method_sugar
         method_keyword
         modifier_sugar
+        moose_param_role_body_sugar
     );
 }
 
-method _can_setup_moose_param_role_method_sugar_ext ($class: $target) {
+method _can_setup_moose_param_role_body_sugar_ext ($class: $target) {
     $class->_check_is_moose_param_role($target)
 }
 
 method _can_setup_method_keyword_ext ($class: $target) {
-    $class->_check_has_meta($target)
-    and not
-    $class->_check_is_moose_param_role($target)
-}
-
-method _can_setup_modifier_sugar_ext ($class: $target) {
-    $class->_check_has_meta($target)
+    not $class->_check_is_moose_param_role($target)
 }
 
 1;
@@ -44,7 +39,7 @@ method _can_setup_modifier_sugar_ext ($class: $target) {
 
 =head1 NAME
 
-Syntax::Feature::Simple::V1 - Version 1 of bundled syntax enhancements
+Syntax::Feature::Simple::V2 - Version 2 of bundled syntax enhancements
 
 =head1 VERSION
 
@@ -52,13 +47,15 @@ version 0.002
 
 =head1 SYNOPSIS
 
-    use syntax qw( simple/v1 );
+    use syntax qw( simple/v2 );
 
 =head1 DESCRIPTION
 
-This is the first version of the syntax dispatcher. It will setup a function
-keyword in all cases, and a method keyword and method modifiers if a
-L<Moose> metaclass was detected.
+This is the second version of the syntax dispatcher. It will setup a function
+and a method keyword in all cases, and a set of method modifiers if any kind
+of L<Moose> metaclass was detected. For roles parameterized with
+L<MooseX::Role::Parameterized> it will also setup a C<role> keyword for the
+body.
 
 =head1 SEE ALSO
 
